@@ -25,10 +25,10 @@ module.exports = (ctx, cb) => {
     searchterm = ctx.body.text
   }
   
-  twitterClient.get('search/tweets', { q: `${searchterm} since:2011-07-11`, count: 100 }, function(err, data, response) 
+  twitterClient.get('search/tweets', { q: `${searchterm} since:2017-06-01`, count: 100 }, function(err, data, response) 
   { 
     console.log(data) 
-    cb(null, { text: `Hello, @${ctx.body.user_name}! Here's your daly tweet about "${ctx.body.text}"  \n\n ${data.statuses[randomize('0', 2)].text}` })
+    cb(null, { text: `Hello, @${ctx.body.user_name}! Here's your daily tweet about "${ctx.body.text}" \n\n ${data.statuses[randomize('0', 2)].text}` })
   })
   
 }
